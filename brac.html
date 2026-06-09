@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brač Reiseplan · Sportclub Sveti Kriz · Frosch Sportreisen</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:       #0060a0;
+    --blue-dark:  #004a7c;
+    --blue-light: #e8f3fb;
+    --blue-mid:   #cce3f5;
+    --green:      #3a8a3a;
+    --green-bg:   #e8f5e8;
+    --orange:     #e07020;
+    --orange-bg:  #fdf0e5;
+    --red:        #c0392b;
+    --red-bg:     #fdecea;
+    --gray:       #f5f5f5;
+    --gray2:      #ebebeb;
+    --gray3:      #999;
+    --dark:       #1a2a3a;
+    --text:       #2a2a2a;
+    --text2:      #555;
+    --border:     #dde5ed;
+    --white:      #ffffff;
+    --radius:     4px;
+    --radius-lg:  8px;
+    --shadow:     0 2px 8px rgba(0,60,100,.10);
+    --shadow-lg:  0 4px 20px rgba(0,60,100,.14);
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+
+  /* ── UTILITY BAR ── */
+  .topbar {
+    background: var(--dark);
+    padding: 6px 0;
+    font-size: 12px;
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar a { color: #aabccc; text-decoration: none; }
+  .topbar a:hover { color: var(--white); }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar-right { color: #aabccc; }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--white);
+    border-bottom: 3px solid var(--blue);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-frog {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .main-nav { display: flex; gap: 0; }
+  .main-nav a {
+    display: block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+  }
+  .main-nav a:hover, .main-nav a.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, #2288c0 100%);
+    padding: 56px 20px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,.08)'/%3E%3C/svg%3E");
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span { color: #ffdd88; }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,.82);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 12px 24px;
+    text-align: center;
+    margin-right: -1px;
+  }
+  .hero-stat:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .hero-stat:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .hero-stat-n {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: #ffdd88;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .hero-stat-l {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,.7);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 69px;
+    z-index: 90;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  }
+  .tab-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+  }
+  .tab-nav-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text2);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .tab-btn:hover { color: var(--blue); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .tab-btn .icon { font-size: 16px; }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 20px 60px;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--blue-light);
+  }
+  .section-head h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+  }
+  .section-head h2 em {
+    font-style: normal;
+    color: var(--blue);
+  }
+  .section-head-sub { font-size: 13px; color: var(--gray3); padding-bottom: 2px; }
+
+  /* ── GRID ── */
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .card-body { padding: 18px 20px; }
+  .card-img {
+    height: 140px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.4));
+  }
+  .card-img-label {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    z-index: 1;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .card-text { font-size: 14px; color: var(--text2); line-height: 1.6; }
+  .card-footer {
+    padding: 12px 20px;
+    background: var(--gray);
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--gray3);
+    font-style: italic;
+  }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .b-must  { background: var(--red); color: white; }
+  .b-photo { background: var(--blue); color: white; }
+  .b-incl  { background: var(--green); color: white; }
+  .b-extra { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange); }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    border-left: 4px solid var(--blue);
+    background: var(--blue-light);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .info-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: var(--blue-dark);
+    margin-bottom: 6px;
+  }
+  .info-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+  .warn-box {
+    border-left: 4px solid var(--orange);
+    background: var(--orange-bg);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .warn-box h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--orange); margin-bottom: 6px; }
+  .warn-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+  /* ── STAT TILES ── */
+  .stat-tile {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .stat-tile .n {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .stat-tile .l { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray3); margin-top: 4px; }
+
+  /* ── LEISTUNGSTABELLE ── */
+  .leistung-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .leistung-table tr { border-bottom: 1px solid var(--gray2); }
+  .leistung-table tr:last-child { border-bottom: none; }
+  .leistung-table td { padding: 10px 12px; }
+  .leistung-table td:first-child { color: var(--text2); }
+  .leistung-table td:last-child { font-weight: 600; color: var(--dark); text-align: right; }
+  .leistung-table thead tr { background: var(--blue); color: white; border-bottom: none; }
+  .leistung-table thead td { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .leistung-table tbody tr:nth-child(even) { background: var(--gray); }
+
+  /* ── TAGESPLAN ── */
+  .day-list { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .day-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  .day-item:last-child { border-bottom: none; }
+  .day-item:hover { background: var(--blue-light); }
+  .day-date-col {
+    background: var(--blue);
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .day-dow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.7); }
+  .day-day { font-family: 'Oswald', sans-serif; font-size: 1.6rem; color: white; line-height: 1; font-weight: 400; }
+  .day-month { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.7); margin-top: 1px; }
+  .day-body { padding: 14px 18px; }
+  .day-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .day-rows { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .t { font-size: 11px; font-weight: 700; color: var(--blue); margin-right: 5px; letter-spacing: .04em; text-transform: uppercase; }
+
+  /* ── SPOT CARD ── */
+  .spot-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .spot-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .spot-header {
+    background: var(--blue);
+    padding: 14px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .spot-num {
+    background: rgba(255,255,255,.18);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 400;
+  }
+  .spot-title-wrap { flex: 1; }
+  .spot-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: white;
+  }
+  .spot-sub-title { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 2px; letter-spacing: .04em; }
+  .spot-body { padding: 16px 20px; font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .light-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .light-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text2);
+    background: var(--gray);
+  }
+  .light-tag.best { border-color: var(--orange); color: var(--orange); background: var(--orange-bg); font-weight: 600; }
+  .spot-tip {
+    font-size: 12px;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    padding: 10px 20px;
+    border-top: 1px solid var(--blue-mid);
+    font-style: italic;
+  }
+  .spot-tip::before { content: '💡 '; }
+
+  /* ── ACT CARD ── */
+  .act-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .act-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .act-header {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .act-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--blue-light);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .act-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark);
+    flex: 1;
+  }
+  .act-body { padding: 12px 16px; font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  /* ── REST CARD ── */
+  .rest-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .rest-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .rest-header {
+    padding: 14px 20px;
+    background: var(--gray);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .rest-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .rest-price {
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .rest-body { padding: 14px 20px; font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+  /* ── FOTO-ZEIT HIGHLIGHT ── */
+  .foto-highlight {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    color: white;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .foto-highlight-icon { font-size: 3rem; line-height: 1; }
+  .foto-highlight h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffdd88;
+    margin-bottom: 6px;
+  }
+  .foto-highlight p { font-size: 14px; color: rgba(255,255,255,.82); line-height: 1.65; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.65);
+    padding: 36px 0 24px;
+    margin-top: 40px;
+    font-size: 13px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-bottom: 28px;
+  }
+  .footer h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 12px;
+  }
+  .footer a { color: rgba(255,255,255,.55); text-decoration: none; display: block; margin-bottom: 6px; }
+  .footer a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .footer-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .tab-panel.active .card,
+  .tab-panel.active .day-item,
+  .tab-panel.active .spot-card,
+  .tab-panel.active .act-card,
+  .tab-panel.active .rest-card,
+  .tab-panel.active .stat-tile {
+    animation: fadeUp .35s ease both;
+  }
+  .tab-panel.active .card:nth-child(2),
+  .tab-panel.active .day-item:nth-child(2),
+  .tab-panel.active .stat-tile:nth-child(2) { animation-delay: .05s; }
+  .tab-panel.active .card:nth-child(3),
+  .tab-panel.active .day-item:nth-child(3),
+  .tab-panel.active .stat-tile:nth-child(3) { animation-delay: .10s; }
+  .tab-panel.active .card:nth-child(4),
+  .tab-panel.active .day-item:nth-child(4),
+  .tab-panel.active .stat-tile:nth-child(4) { animation-delay: .15s; }
+
+  @media (max-width: 640px) {
+    .hero-stats { flex-direction: row; }
+    .hero-stat { flex: 1; padding: 10px 12px; }
+    .day-date-col { padding: 10px 8px; }
+    .day-day { font-size: 1.3rem; }
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .foto-highlight { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="#">% Sale</a>
+      <a href="#">Freie Plätze</a>
+      <a href="#">Hilfecenter</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="topbar-right">Tel. 0251 9278810 · Mo–Fr 10:00–17:00</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-frog">🐸</div>
+      Frosch Sportreisen
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="active">Sportclubs</a>
+      <a href="#">Familienreisen</a>
+      <a href="#">Fernreisen</a>
+      <a href="#">Aktivreisen</a>
+      <a href="#">Aktivitäten</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Mein persönlicher Reiseplan</div>
+    <h1>Sportclub Sveti Kriz<br><span>Insel Brač, Kroatien</span></h1>
+    <p class="hero-sub">29. August – 12. September 2026 · 3 Personen · Bol / Dalmatien</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-n">15</span><span class="hero-stat-l">Reisetage</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">25°</span><span class="hero-stat-l">Wasser</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">28°</span><span class="hero-stat-l">Luft</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">7</span><span class="hero-stat-l">Foto-Spots</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">3–4×</span><span class="hero-stat-l">Wandern/Woche</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="t-overview">
+      <span class="icon">📋</span> Übersicht
+    </button>
+    <button class="tab-btn" data-tab="t-plan">
+      <span class="icon">📅</span> 14-Tage-Plan
+    </button>
+    <button class="tab-btn" data-tab="t-foto">
+      <span class="icon">📷</span> Foto-Spots
+    </button>
+    <button class="tab-btn" data-tab="t-akt">
+      <span class="icon">🏃</span> Aktivitäten
+    </button>
+    <button class="tab-btn" data-tab="t-rest">
+      <span class="icon">🍽</span> Restaurants
+    </button>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- ── ÜBERSICHT ── -->
+  <div class="tab-panel active" id="t-overview">
+    <div class="section-head">
+      <h2>Dein <em>Urlaub auf einen Blick</em></h2>
+      <span class="section-head-sub">Sportclub Sveti Kriz · Bol</span>
+    </div>
+
+    <div class="grid4" style="margin-bottom:28px;">
+      <div class="stat-tile"><span class="n">15</span><div class="l">Reisetage</div></div>
+      <div class="stat-tile"><span class="n">3–4×</span><div class="l">Wandern/Woche</div></div>
+      <div class="stat-tile"><span class="n">3–4×</span><div class="l">Bike/Woche</div></div>
+      <div class="stat-tile"><span class="n">6×</span><div class="l">Abendessen inkl.</div></div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:28px;">
+      <div>
+        <div class="info-box">
+          <h3>✅ Im Reisepreis enthalten</h3>
+          <p>Alles, was du ohne Aufpreis genießt:</p>
+        </div>
+        <table class="leistung-table" style="border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+          <thead><tr><td>Leistung</td><td>Details</td></tr></thead>
+          <tbody>
+            <tr><td>Frühstücksbuffet</td><td>täglich</td></tr>
+            <tr><td>Abendessen</td><td>6× pro Woche</td></tr>
+            <tr><td>Geführte Wanderungen</td><td>3–4× / Woche · 3–6 Std.</td></tr>
+            <tr><td>Mountainbike-Pool</td><td>Ghost Nirvana · Helm inklusive</td></tr>
+            <tr><td>Geführte Biketouren</td><td>3–4× / Woche</td></tr>
+            <tr><td>Stand-up-Paddling</td><td>Einführung + freies Paddeln</td></tr>
+            <tr><td>Aktiv & Fit Programm</td><td>3–4× / Woche</td></tr>
+            <tr><td>Frosch Reiseleitung</td><td>ganztägig vor Ort</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="warn-box">
+          <h3>💰 Kostenpflichtige Extras</h3>
+          <p>Richtwerte — vor Ort buchbar oder vorab reservieren:</p>
+        </div>
+        <table class="leistung-table" style="border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+          <thead><tr><td>Aktivität</td><td>Preis</td></tr></thead>
+          <tbody>
+            <tr><td>Kayak-Tour (Paddle & Explore)</td><td>~35–55 € / P.</td></tr>
+            <tr><td>Fähre Bol ↔ Hvar (hin/zurück)</td><td>~15–20 € / P.</td></tr>
+            <tr><td>Fähre + Bus Split (hin/zurück)</td><td>~20–25 € / P.</td></tr>
+            <tr><td>Mietwagen 1 Tag (zu dritt)</td><td>~40–60 € gesamt</td></tr>
+            <tr><td>Schnorcheltour Dolphin</td><td>30 € / P.</td></tr>
+            <tr><td>Festbike-Miete</td><td>59 € / Woche</td></tr>
+            <tr><td>Biketransfer (Insel/Festland)</td><td>auf Anfrage</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="foto-highlight">
+      <div class="foto-highlight-icon">📸</div>
+      <div>
+        <h3>Beste Fotozeit im September</h3>
+        <p>Goldene Stunde: 6:15–7:30 Uhr (Sonnenaufgang) und 18:30–19:45 Uhr (Sonnenuntergang). September bietet weicheres, wärmeres Licht als Juli/August — ideal für Landschaftsfotografie. Wasser noch glasklar, deutlich weniger Touristen im Bild.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#0060a0,#2288c0);">🏔️
+          <span class="card-img-label">Wandern</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Wandern <span class="badge b-incl">Inklusive</span></div>
+          <p class="card-text">Geführte Touren 3–4× pro Woche. Highlight: Vidova Gora (780 m), Felsenkloster Blaca, Südküste. Dauer 3–6 Stunden je Tour.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img" style="background:linear-gradient(135deg,#004a7c,#0060a0);">🚵
+          <span class="card-img-label">Mountainbike</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Mountainbike <span class="badge b-incl">Inklusive</span></div>
+          <p class="card-text">Ghost Nirvana Bikes, Helm inklusive. 3–4× / Woche geführte Touren. Optional: Festbike-Miete 59 € / Woche, Transfers ins Inselinnere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 14-TAGE-PLAN ── -->
+  <div class="tab-panel" id="t-plan">
+    <div class="section-head">
+      <h2><em>14 Tage</em> auf Brač</h2>
+      <span class="section-head-sub">Frosch-Programm wird wöchentlich bekanntgegeben — Anpassung vor Ort möglich</span>
+    </div>
+
+    <div class="day-list">
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Sa</span><span class="day-day">29</span><span class="day-month">Aug</span></div>
+        <div class="day-body">
+          <div class="day-title">Ankunft in Bol</div>
+          <div class="day-rows"><span class="t">Nchm.</span>Transfer Split → Fähre Supetar → Bus Bol · Einchecken · Orientierung<br><span class="t">Abend</span>Spaziergang Hafen Bol · Abendessen im Club</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">So</span><span class="day-day">30</span><span class="day-month">Aug</span></div>
+        <div class="day-body">
+          <div class="day-title">Zlatni Rat <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">06:30</span>Zlatni Rat ohne Menschenmassen fotografieren — bestes Frühjahrslicht<br><span class="t">Vomittg.</span>SUP-Einführung (inklusive) · Hausstrände erkunden<br><span class="t">Abend</span>Hafen Bol · Altstadt · erste Drinks am Wasser</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Mo</span><span class="day-day">31</span><span class="day-month">Aug</span></div>
+        <div class="day-body">
+          <div class="day-title">Vidova Gora <span class="badge b-must">Must-Do</span> <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Früh</span>Geführte Wanderung Vidova Gora (Frosch · 2–3 Std. · 780 Hm)<br><span class="t">Gipfel</span>Zlatni Rat von oben · Hvar am Horizont — bestes Fotomotiv der Insel<br><span class="t">Nchm.</span>Abstieg · Schwimmen am Hausstrand · Erholung</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Di</span><span class="day-day">1</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Biketour + Dorf Škrip <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Vomittg.</span>Geführte MTB-Tour (Frosch) · Hügelland der Insel<br><span class="t">Nchm.</span>Mietwagen: Škrip — ältestes Dorf der Insel · steinerne Gassen · keine Touristenmassen</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Mi</span><span class="day-day">2</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Felsenkloster Blaca <span class="badge b-must">Must-Do</span> <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Ganztag</span>Wanderung Blaca-Schlucht (Frosch-geführt oder solo · 2 Std. je Richtung)<br>Kloster klebt wie Adlerhorst am Fels · dramatische Karstklippen · einsame Bucht darunter</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Do</span><span class="day-day">3</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Insel Hvar <span class="badge b-must">Must-Do</span> <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Früh</span>Fähre Bol → Jelsa (~20 Min.)<br><span class="t">Vomittg.</span>Wanderung Jelsa → Vrboska ("kleines Venedig") — Frosch-geführt oder solo<br><span class="t">Nchm.</span>Hvar Stadt · Festung Fortica · Venezianische Altstadt · Hafen</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Fr</span><span class="day-day">4</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Kayak-Morgen + Glow Tour Nacht <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">07:00</span>Morgentour Paddle & Explore: Südküste · nur per Boot erreichbare Buchten<br><span class="t">Nchm.</span>Erholung · SUP oder freier Strandtag<br><span class="t">Nacht</span>Glow Tour (Biolumineszenz-Kayak) · Langzeitbelichtung · hohes ISO · frühbuchen!</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Sa</span><span class="day-day">5</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Tagesausflug Split <span class="badge b-must">Must-Do</span> <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Früh</span>Fähre + Bus nach Split (1,5–2 Std.)<br><span class="t">Ganztag</span>Diokletians Palast (UNESCO) · Riva-Promenade · Fischmarkt<br><span class="t">Abend</span>Rückfähre nach Bol</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">So</span><span class="day-day">6</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Sonnenuntergang Vidova Gora <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Nchm.</span>Freier Strandtag · SUP oder Schnorcheln<br><span class="t">18:00</span>Taxi/Mietwagen zum Gipfel — 30 Min. vor Sonnenuntergang · Goldstunden-Panorama</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Mo</span><span class="day-day">7</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Biketour Makarska Riviera (optional)</div>
+          <div class="day-rows"><span class="t">Ganztag</span>Frosch Biketour aufs Festland (Biketransfer kostenpflichtig) · Küstenstraße Makarska</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Di</span><span class="day-day">8</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Schnorcheln + Nordküste <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Vomittg.</span>Schnorcheltour Tauchcenter Dolphin (30 € / P.) — Unterwasserfotografie<br><span class="t">Nchm.</span>Mietwagen: Pučišća (Marmorbrüche) → Supetar (Nordküstenhafen)</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Mi</span><span class="day-day">9</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Küstenwanderung Südufer <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Früh</span>Frosch-Wanderung Südküste · einsame Kiesbuchten · Karstklippen<br><span class="t">Nchm.</span>Zlatni Rat (abends ruhiger als morgens) · letztes Schwimmen</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Do</span><span class="day-day">10</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Milna & Westküste <span class="badge b-photo">📷 Foto</span></div>
+          <div class="day-rows"><span class="t">Ganztag</span>Mietwagen: Milna (ruhige Naturbucht · Segelboote) → Bobovišća → Westspitze der Insel</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col"><span class="day-dow">Fr</span><span class="day-day">11</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Letzter aktiver Tag</div>
+          <div class="day-rows"><span class="t">Früh</span>Wunschaktivität: Biketour · SUP · freier Morgen am Strand<br><span class="t">Abend</span>Abschiedsessen — Peka 24 Std. vorher bestellen! (Ribarska kuća)</div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col" style="background:var(--dark);"><span class="day-dow">Sa</span><span class="day-day">12</span><span class="day-month">Sep</span></div>
+        <div class="day-body">
+          <div class="day-title">Abreise</div>
+          <div class="day-rows"><span class="t">Bis 10:00</span>Zimmer räumen · Transfer Bol → Fähre Supetar → Split Flughafen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOTO-SPOTS ── -->
+  <div class="tab-panel" id="t-foto">
+    <div class="section-head">
+      <h2>Die besten <em>Foto-Spots</em></h2>
+      <span class="section-head-sub">7 Motive · alle auf oder direkt bei Brač erreichbar</span>
+    </div>
+
+    <div class="foto-highlight">
+      <div class="foto-highlight-icon">🌅</div>
+      <div>
+        <h3>September — ideal für Fotografie</h3>
+        <p>Goldene Stunde: 6:15–7:30 (Sonnenaufgang) und 18:30–19:45 (Sonnenuntergang). Weicheres Licht als im Hochsommer, klare Luft, kaum Touristenmassen im Bild.</p>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">1</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Vidova Gora · 778 m</div>
+          <div class="spot-sub-title">Höchster Punkt aller Adria-Inseln</div>
+        </div>
+        <span class="badge b-must">Top-Spot</span>
+      </div>
+      <div class="spot-body">Zlatni Rat in voller Form von oben, Hvar am Horizont, offenes Meer. 360°-Panorama — das eindrücklichste Motiv der gesamten Insel. Aufstieg zu Fuß 2–3 Std. ab Kloster oder per Auto/Taxi ~15 Min.
+        <div class="light-tags">
+          <span class="light-tag best">Sonnenaufgang ★★★</span>
+          <span class="light-tag best">Sonnenuntergang ★★★</span>
+          <span class="light-tag">Mittag meiden</span>
+          <span class="light-tag">Weitwinkel ideal</span>
+          <span class="light-tag">Polfilter empfohlen</span>
+        </div>
+      </div>
+      <div class="spot-tip">Aufstieg früh zu Fuß, Sonnenuntergang per Taxi — zwei Stimmungen, ein Gipfel.</div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">2</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Zlatni Rat — Das Goldene Horn</div>
+          <div class="spot-sub-title">500 m ins Meer · Ikone Kroatiens</div>
+        </div>
+        <span class="badge b-photo">Ikone</span>
+      </div>
+      <div class="spot-body">Dreieckige Landzunge, die sich je nach Wind und Strömung verändert. Luftbild-Klassiker, aber auch vom Wasser (SUP, Kayak) eindrucksvoll — einzigartige Bodenperspektive.
+        <div class="light-tags">
+          <span class="light-tag best">Sonnenaufgang ★★★</span>
+          <span class="light-tag">Blaue Stunde ★★</span>
+          <span class="light-tag">Vor 7:30 kaum Menschen</span>
+          <span class="light-tag">Drohne sehr lohnend</span>
+        </div>
+      </div>
+      <div class="spot-tip">30 Min. Fußmarsch vom Club. Lokale Drohnenregeln (EASA) vor Ort prüfen.</div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">3</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Felsenkloster Blaca</div>
+          <div class="spot-sub-title">Adlerhorst im Karst · 16. Jahrhundert</div>
+        </div>
+        <span class="badge b-must">Dramatisch</span>
+      </div>
+      <div class="spot-body">Kloster klebt in steilem Felsabbruch, darunter einsame Bucht. Nur per Wanderung erreichbar — keine Tourismusinfrastruktur. Grandiose Karstszenerie bereits auf dem Weg durch die Blaca-Schlucht.
+        <div class="light-tags">
+          <span class="light-tag best">Vormittag ★★★</span>
+          <span class="light-tag">Bewölkung gut</span>
+          <span class="light-tag">Weitwinkel empfohlen</span>
+          <span class="light-tag">2 Std. je Richtung</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">4</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Škrip — Ältestes Dorf der Insel</div>
+          <div class="spot-sub-title">Mittelalterliche Steinarchitektur</div>
+        </div>
+        <span class="badge b-photo">Architektur</span>
+      </div>
+      <div class="spot-body">Steinerne Gassen, uralte Häuser, Burg. Authentisches dalmatinisches Dorfbild ohne Touristen. Ideal für Porträt- und Straßenfotografie.
+        <div class="light-tags">
+          <span class="light-tag best">Frühmorgens ★★★</span>
+          <span class="light-tag">Bewölkt gut</span>
+          <span class="light-tag">50mm ideal</span>
+        </div>
+      </div>
+      <div class="spot-tip">Mietwagen: ~20 Min. ab Bol. Kombinierbar mit Pučišća-Tour Nordküste.</div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">5</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Pučišća — Marmorbrüche</div>
+          <div class="spot-sub-title">Weißer Brač-Marmor · Nordküste</div>
+        </div>
+        <span class="badge b-photo">Textur</span>
+      </div>
+      <div class="spot-body">Aktive Steinbrüche mit dramatischen weißen Texturen und harten Kontrasten. Derselbe Marmor wurde u.a. für den Wiener Reichstag verwendet.
+        <div class="light-tags">
+          <span class="light-tag best">Morgens ★★★</span>
+          <span class="light-tag">Mittagssonne zu hart</span>
+          <span class="light-tag">Kontrast-Motiv</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">6</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Hausstrände Sveti Kriz</div>
+          <div class="spot-sub-title">Türkisblaues Wasser · direkt am Club</div>
+        </div>
+        <span class="badge b-photo">Unterwasser</span>
+      </div>
+      <div class="spot-body">Kiesstrand, Pinienschatten, glasklares Wasser. Perfekt für Unterwasserfotografie und Makroaufnahmen direkt vor der Haustür.
+        <div class="light-tags">
+          <span class="light-tag best">Unterwasser Mittag ★★★</span>
+          <span class="light-tag">Golden Hour ★★</span>
+          <span class="light-tag">Waterproof-Gehäuse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-header">
+        <div class="spot-num">7</div>
+        <div class="spot-title-wrap">
+          <div class="spot-name">Glow Kayak — Biolumineszenz</div>
+          <div class="spot-sub-title">Nachttour · Paddle & Explore</div>
+        </div>
+        <span class="badge b-photo">Nacht</span>
+      </div>
+      <div class="spot-body">Spätsommer: Plankton leuchtet blau im Wasser. Langzeitbelichtung vom Kajak aus — hohes ISO, Stabilisierung nötig. Neumond-Nacht optimal.
+        <div class="light-tags">
+          <span class="light-tag best">Neumond ideal ★★★</span>
+          <span class="light-tag">ISO 3200+</span>
+          <span class="light-tag">Stativ/Stabilisierung</span>
+          <span class="light-tag">Langzeitbelichtung</span>
+        </div>
+      </div>
+      <div class="spot-tip">Frühzeitig buchen — begrenzte Plätze, sehr gefragt im September.</div>
+    </div>
+  </div>
+
+  <!-- ── AKTIVITÄTEN ── -->
+  <div class="tab-panel" id="t-akt">
+    <div class="section-head">
+      <h2>Sport &amp; <em>Aktivitäten</em></h2>
+      <span class="section-head-sub">Inklusive und kostenpflichtige Angebote</span>
+    </div>
+    <div class="grid2">
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🥾</div>
+          <div class="act-name">Wandern</div>
+          <span class="badge b-incl">Inklusive</span>
+        </div>
+        <div class="act-body">3–4× / Woche geführt. Highlights: Vidova Gora, Blaca-Kloster, Südküste, Hvar (Jelsa–Vrboska). Dauer 3–6 Stunden. Ausrüstung: Trekkingschuhe, 1,5 l Wasser, Sonnenschutz, Wind­jacke.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🚵</div>
+          <div class="act-name">Mountainbike</div>
+          <span class="badge b-incl">Inklusive</span>
+        </div>
+        <div class="act-body">Ghost Nirvana Bikes, Helm inklusive, 3–4× / Woche geführt. Festbike-Miete 59 € / Woche empfohlen. Optionale Transfers ins Inselinnere oder zur Makarska Riviera.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🏄</div>
+          <div class="act-name">Stand-up-Paddling</div>
+          <span class="badge b-incl">Inklusive</span>
+        </div>
+        <div class="act-body">Einführung inklusive, dann freies Paddeln an Hausstränden und nahen Buchten. Früh morgens = glasglattes Wasser — ideale Fotoperspektive auf Zlatni Rat vom Wasser aus.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🚣</div>
+          <div class="act-name">Kayak</div>
+          <span class="badge b-extra">Extra</span>
+        </div>
+        <div class="act-body">Paddle & Explore direkt am Kloster. Morgentouren Südküste, Glow Tour nachts. ~35–55 €/P. Frühbuchen — begrenzte Plätze!</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🤿</div>
+          <div class="act-name">Schnorcheln / Tauchen</div>
+          <span class="badge b-extra">Extra</span>
+        </div>
+        <div class="act-body">Tauchcenter Dolphin: Schnorcheltour 30 €, Schnuppertauchen 85–110 €. Wasser 25–26°C im September, Sichtweite exzellent — ideal für Unterwasserfotografie.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🚗</div>
+          <div class="act-name">Mietwagen-Inseltour</div>
+          <span class="badge b-extra">Extra</span>
+        </div>
+        <div class="act-body">~40–60 € / Tag für alle drei. Pflichtroute: Škrip → Pučišća → Supetar → Milna. Ein Tag reicht für die komplette Nordküste und alle Foto-Spots abseits von Bol.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">⛴️</div>
+          <div class="act-name">Tagesausflug Insel Hvar</div>
+          <span class="badge b-extra">Extra</span>
+        </div>
+        <div class="act-body">Fähre Bol → Jelsa ~20 Min. Wanderung Jelsa–Vrboska ("kleines Venedig"). Hvar Stadt: Festung Fortica, venezianische Altstadt. Voller Tag, ~15–20 €/P. hin/zurück.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-header">
+          <div class="act-icon">🏛️</div>
+          <div class="act-name">Tagesausflug Split</div>
+          <span class="badge b-extra">Extra</span>
+        </div>
+        <div class="act-body">Fähre + Bus, 1,5–2 Std. Diokletians Palast (UNESCO), Riva-Promenade, Fisch- und Obstmarkt. Idealer Städtekontrast zur Inselruhe. ~20–25 €/P. hin/zurück.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESTAURANTS ── -->
+  <div class="tab-panel" id="t-rest">
+    <div class="section-head">
+      <h2>Essen &amp; <em>Trinken</em> in Bol</h2>
+      <span class="section-head-sub">Club-Abendessen 6× / Woche inklusive — für den freien Abend und Mittagessen</span>
+    </div>
+
+    <div class="rest-card">
+      <div class="rest-header">
+        <div class="rest-name">Ribarska kuća <span class="badge b-must">Empfehlung</span></div>
+        <div class="rest-price">~25–40 € / P.</div>
+      </div>
+      <div class="rest-body">Bester Fisch in Bol, Meerblick-Terrasse. Peka (Lamm oder Oktopus unter der Glocke) muss <strong>24 Stunden vorab</strong> bestellt werden. Reservierung zwingend nötig. Dalmatinische Küche auf echtem Niveau.</div>
+    </div>
+
+    <div class="rest-card">
+      <div class="rest-header">
+        <div class="rest-name">Konoba Mlin</div>
+        <div class="rest-price">~20–30 € / P.</div>
+      </div>
+      <div class="rest-body">Alte Mühle, authentisch dalmatinisch, keine Touristenfalle. Tintenfisch, Brodet (Fischragout), frische Pasta. Ruhige, ehrliche Atmosphäre — ideal für den "echten" Abend abseits des Touristenrummels.</div>
+    </div>
+
+    <div class="rest-card">
+      <div class="rest-header">
+        <div class="rest-name">Restaurant Gust</div>
+        <div class="rest-price">~15–25 € / P.</div>
+      </div>
+      <div class="rest-body">Direkt am Hafen Bol, Pasta und Meeresfrüchte, moderner Stil. Gut für Mittagessen nach dem Ausflug oder als unkomplizierter Abend.</div>
+    </div>
+
+    <div class="rest-card">
+      <div class="rest-header">
+        <div class="rest-name">Vagabundo — Abenddrinks</div>
+        <div class="rest-price">8–12 € / Drink</div>
+      </div>
+      <div class="rest-body">Hafen Bol, Cocktails, entspannte Atmosphäre. Im September ohne August-Gedränge. Gut als Abschluss nach dem Abendessen. Keine Reservierung nötig.</div>
+    </div>
+
+    <div class="rest-card">
+      <div class="rest-header">
+        <div class="rest-name">Markt Bol — Picknick-Option</div>
+        <div class="rest-price">5–10 € / P.</div>
+      </div>
+      <div class="rest-body">Täglich morgens in der Altstadt. Frisches Obst, Paški sir (Schafskäse), Oliven, lokaler Wein. Ideal für Picknick am Goldenen Horn nach der Wanderung.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">🐸 Frosch Sportreisen</div>
+        <p style="margin-top:10px;font-size:12px;">Reisepläne für deinen perfekten Sporturlaub.</p>
+        <p style="margin-top:8px;font-size:12px;">Tel. 0251 9278810<br>Mo–Fr: 10:00–17:00 Uhr</p>
+      </div>
+      <div>
+        <h4>Sportclubs</h4>
+        <a href="#">Sportclub Sveti Kriz · Brač</a>
+        <a href="#">Sportclub Korfu</a>
+        <a href="#">Sportclub Samos</a>
+        <a href="#">Sportclub Sardinien</a>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <a href="#">Hilfecenter</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Freie Plätze</a>
+        <a href="#">MyFrosch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Frosch Sportreisen · Persönlicher Reiseplan</span>
+      <span>Datenschutz · Impressum · Reisebedingungen</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = this.getAttribute('data-tab');
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      this.classList.add('active');
+      var el = document.getElementById(t);
+      if(el) el.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
