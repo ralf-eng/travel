@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordgriechenland 2026 · Sportclub Sveti Kriz</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:       #0060a0;
+    --blue-dark:  #004a7c;
+    --blue-light: #e8f3fb;
+    --blue-mid:   #cce3f5;
+    --green:      #3a8a3a;
+    --green-bg:   #e8f5e8;
+    --orange:     #e07020;
+    --orange-bg:  #fdf0e5;
+    --red:        #c0392b;
+    --red-bg:     #fdecea;
+    --gray:       #f5f5f5;
+    --gray2:      #ebebeb;
+    --gray3:      #999;
+    --dark:       #1a2a3a;
+    --text:       #2a2a2a;
+    --text2:      #555;
+    --border:     #dde5ed;
+    --white:      #ffffff;
+    --radius:     4px;
+    --radius-lg:  8px;
+    --shadow:     0 2px 8px rgba(0,60,100,.10);
+    --shadow-lg:  0 4px 20px rgba(0,60,100,.14);
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--dark);
+    padding: 6px 0;
+    font-size: 12px;
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar a { color: #aabccc; text-decoration: none; }
+  .topbar a:hover { color: var(--white); }
+  .topbar-left { display: flex; gap: 20px; }
+  .topbar-right { color: #aabccc; }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--dark);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0;
+    min-height: 64px;
+  }
+  .logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .logo-flag {
+    flex-shrink: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.4);
+    display: block;
+    width: 48px;
+    height: 32px;
+  }
+  .logo span { color: rgba(255,255,255,.55); font-weight: 300; font-size: 14px; margin-left: 6px; letter-spacing: 0.06em; }
+  .main-nav { display: flex; gap: 0; align-items: stretch; }
+  .main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,.6);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+  }
+  .main-nav a:hover { color: var(--white); border-bottom-color: var(--orange); }
+  .main-nav a.ext { color: var(--orange); }
+  .main-nav a.ext:hover { color: #ffb060; border-bottom-color: #ffb060; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, #2288c0 100%);
+    padding: 56px 20px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,.08)'/%3E%3C/svg%3E");
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: var(--radius);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span { color: #ffdd88; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,.82); margin-bottom: 28px; font-weight: 300; }
+  .hero-stats { display: flex; gap: 0; flex-wrap: wrap; margin-top: 32px; }
+  .hero-stat {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 12px 24px; text-align: center; margin-right: -1px;
+  }
+  .hero-stat:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .hero-stat:last-child  { border-radius: 0 var(--radius) var(--radius) 0; margin-right: 0; }
+  .hero-stat-n { display: block; font-family: 'Oswald', sans-serif; font-size: 1.8rem; color: #ffdd88; font-weight: 500; line-height: 1; }
+  .hero-stat-l { display: block; font-size: 11px; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 61px;
+    z-index: 90;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  }
+  .tab-nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 20px;
+    display: flex; overflow-x: auto; gap: 0; scrollbar-width: none;
+  }
+  .tab-nav-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 14px 18px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text2); cursor: pointer; border: none; background: none;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    white-space: nowrap; transition: all .2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { color: var(--blue); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .tab-btn .ic { font-size: 15px; }
+
+  /* ── CONTENT ── */
+  .content { max-width: 1100px; margin: 0 auto; padding: 36px 20px 80px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .section-head {
+    display: flex; align-items: flex-end; gap: 16px;
+    margin-bottom: 28px; padding-bottom: 14px;
+    border-bottom: 2px solid var(--blue-light);
+  }
+  .section-head h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7rem; font-weight: 500; color: var(--dark); letter-spacing: -0.01em;
+  }
+  .section-head h2 em { font-style: normal; color: var(--blue); }
+  .section-head-sub { font-size: 13px; color: var(--gray3); padding-bottom: 2px; }
+
+  /* ── GRIDS ── */
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .card-body { padding: 18px 20px; }
+  .card-img {
+    height: 120px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
+    position: relative; overflow: hidden;
+  }
+  .card-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.35)); }
+  .card-img-label { position: absolute; bottom: 10px; left: 12px; z-index: 1; font-size: 11px; font-weight: 700; color: white; letter-spacing: 0.08em; text-transform: uppercase; }
+  .card-title { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .card-text { font-size: 14px; color: var(--text2); line-height: 1.6; }
+  .card-footer { padding: 10px 20px; background: var(--gray); border-top: 1px solid var(--border); font-size: 12px; color: var(--gray3); font-style: italic; }
+
+  /* ── BADGES ── */
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
+  .b-must  { background: var(--red); color: white; }
+  .b-ok    { background: var(--green); color: white; }
+  .b-warn  { background: var(--orange); color: white; }
+  .b-info  { background: var(--blue); color: white; }
+  .b-extra { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange); }
+  .b-photo { background: var(--dark); color: white; }
+
+  /* ── INFO / WARN BOXES ── */
+  .info-box { border-left: 4px solid var(--blue); background: var(--blue-light); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 16px 20px; margin-bottom: 20px; }
+  .info-box h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--blue-dark); margin-bottom: 6px; }
+  .info-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .warn-box { border-left: 4px solid var(--orange); background: var(--orange-bg); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 16px 20px; margin-bottom: 20px; }
+  .warn-box h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--orange); margin-bottom: 6px; }
+  .warn-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .ok-box { border-left: 4px solid var(--green); background: var(--green-bg); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 16px 20px; margin-bottom: 20px; }
+  .ok-box h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--green); margin-bottom: 6px; }
+  .ok-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .wm-box { border-left: 4px solid var(--orange); background: var(--orange-bg); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: 16px 20px; margin-bottom: 20px; }
+  .wm-box h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--orange); margin-bottom: 6px; }
+  .wm-box p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .wm-box .wm-match { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 8px 12px; background: rgba(255,255,255,.7); border-radius: var(--radius); }
+  .wm-box .wm-label { font-family: 'Oswald', sans-serif; font-size: .8rem; text-transform: uppercase; color: var(--orange); letter-spacing: .04em; min-width: 110px; }
+  .wm-box .wm-info { font-size: 13px; color: var(--text); }
+
+  /* ── STAT TILES ── */
+  .stat-tile { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; text-align: center; box-shadow: var(--shadow); }
+  .stat-tile .n { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 500; color: var(--blue); line-height: 1; }
+  .stat-tile .l { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray3); margin-top: 4px; }
+
+  /* ── DAY LIST (timeline) ── */
+  .day-list { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 24px; }
+  .day-item { display: grid; grid-template-columns: 96px 1fr; border-bottom: 1px solid var(--border); transition: background .15s; }
+  .day-item:last-child { border-bottom: none; }
+  .day-item:hover { background: var(--blue-light); }
+  .day-date-col { background: var(--blue); padding: 14px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-shrink: 0; }
+  .day-date-col.orange { background: var(--orange); }
+  .day-date-col.dark   { background: var(--dark); }
+  .day-date-col.green  { background: var(--green); }
+  .day-dow   { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.7); }
+  .day-day   { font-family: 'Oswald', sans-serif; font-size: 1.6rem; color: white; line-height: 1; font-weight: 400; }
+  .day-month { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.7); margin-top: 1px; }
+  .day-body  { padding: 14px 18px; }
+  .day-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 500; color: var(--dark); margin-bottom: 6px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .day-rows  { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .t { font-size: 11px; font-weight: 700; color: var(--blue); margin-right: 5px; letter-spacing: .04em; text-transform: uppercase; }
+  .t-orange { color: var(--orange); }
+
+  /* ── VERBINDUNGS-TIMELINE ── */
+  .conn-wrap { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 20px; }
+  .conn-item { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+  .conn-item:last-child { border-bottom: none; }
+  .conn-time { min-width: 80px; padding: 14px 16px; background: var(--blue); color: white; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 400; display: flex; align-items: center; justify-content: center; }
+  .conn-body { padding: 12px 16px; flex: 1; }
+  .conn-title { font-weight: 600; font-size: 14px; color: var(--dark); margin-bottom: 2px; }
+  .conn-sub   { font-size: 13px; color: var(--text2); }
+  .conn-mid   { background: var(--gray); }
+  .conn-mid .conn-time { background: var(--gray2); color: var(--text2); font-size: 0.95rem; }
+
+  /* ── SPOT CARDS ── */
+  .spot-card { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 14px; box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s; }
+  .spot-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .spot-header { background: var(--blue); padding: 12px 18px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .spot-header.orange { background: var(--orange); }
+  .spot-header.dark   { background: var(--dark); }
+  .spot-num { background: rgba(255,255,255,.2); color: white; font-family: 'Oswald', sans-serif; font-size: 1.1rem; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 400; }
+  .spot-title { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 500; color: white; margin-bottom: 2px; }
+  .spot-sub { font-size: 12px; color: rgba(255,255,255,.75); }
+  .spot-body { padding: 14px 18px; font-size: 14px; color: var(--text2); line-height: 1.65; }
+  .spot-footer { padding: 10px 18px; background: var(--gray); border-top: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+  /* ── CHECKLIST ── */
+  .check-list { list-style: none; }
+  .check-list li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--gray2); font-size: 14px; color: var(--text); }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list input[type=checkbox] { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--blue); cursor: pointer; }
+  .check-list .check-label { flex: 1; }
+  .check-list .check-label strong { display: block; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+  .check-list .check-label span { color: var(--text2); font-size: 13px; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 20px; }
+  .data-table th { background: var(--blue); color: white; padding: 10px 14px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--gray2); }
+  .data-table tbody tr:nth-child(even) { background: var(--gray); }
+  .data-table td:last-child { font-weight: 600; color: var(--dark); }
+
+  /* ── LENS TAG ── */
+  .lens { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; background: var(--dark); color: white; margin-right: 4px; letter-spacing: 0.04em; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--dark); color: rgba(255,255,255,.5); font-size: 12px; text-align: center; padding: 20px; margin-top: 0; }
+
+  @media (max-width: 640px) {
+    .main-nav { display: none; }
+    .hero-stats { flex-direction: column; gap: 8px; }
+    .hero-stat { border-radius: var(--radius) !important; margin-right: 0; }
+    .day-item { grid-template-columns: 72px 1fr; }
+    .conn-time { min-width: 64px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <!-- Greek flag SVG -->
+      <svg class="logo-flag" viewBox="0 0 270 180" xmlns="http://www.w3.org/2000/svg">
+        <rect width="270" height="180" fill="#0D5EAF"/>
+        <!-- 9 stripes: alternating blue/white, each 20px -->
+        <rect y="0"   width="270" height="20" fill="#0D5EAF"/>
+        <rect y="20"  width="270" height="20" fill="#fff"/>
+        <rect y="40"  width="270" height="20" fill="#0D5EAF"/>
+        <rect y="60"  width="270" height="20" fill="#fff"/>
+        <rect y="80"  width="270" height="20" fill="#0D5EAF"/>
+        <rect y="100" width="270" height="20" fill="#fff"/>
+        <rect y="120" width="270" height="20" fill="#0D5EAF"/>
+        <rect y="140" width="270" height="20" fill="#fff"/>
+        <rect y="160" width="270" height="20" fill="#0D5EAF"/>
+        <!-- Blue canton (top-left square, 100x100) -->
+        <rect width="100" height="100" fill="#0D5EAF"/>
+        <!-- White cross: horizontal bar -->
+        <rect x="0" y="38" width="100" height="24" fill="#fff"/>
+        <!-- White cross: vertical bar -->
+        <rect x="38" y="0" width="24" height="100" fill="#fff"/>
+      </svg>
+      Explore North Greece
+      <span> Sportclub Thassos</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#" onclick="showTab('uebersicht');return false;">Übersicht</a>
+      <a href="https://daydream-yachting.com/" target="_blank" class="ext">⛵ SY Anna · Day-Dream Yachting ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Reiseplan · Nordgriechenland 2026</div>
+    <h1>Thessaloniki · Sithonia<br><span>Kavala · Thassos</span></h1>
+    <div class="hero-sub">27. Juni – 19. Juli 2026 · Segeln, Fotografieren, Antike &amp; Inselleben</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-n">23</span><span class="hero-stat-l">Tage</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">5</span><span class="hero-stat-l">Etappen</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">~225</span><span class="hero-stat-l">Seemeilen</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">10</span><span class="hero-stat-l">Segeltage</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">7</span><span class="hero-stat-l">Thassos-Tage</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">A7V</span><span class="hero-stat-l">Sony Kamera</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="showTab('uebersicht')"><span class="ic">🗺</span>Übersicht</button>
+    <button class="tab-btn" onclick="showTab('anreise')"><span class="ic">🚆</span>Anreise 27.06</button>
+    <button class="tab-btn" onclick="showTab('thessaloniki')"><span class="ic">🏛</span>Thessaloniki</button>
+    <button class="tab-btn" onclick="showTab('segeltoern')"><span class="ic">⛵</span>Segeltörn</button>
+    <button class="tab-btn" onclick="showTab('kavala')"><span class="ic">🏰</span>Kavala</button>
+    <button class="tab-btn" onclick="showTab('thassos')"><span class="ic">🚲</span>Thassos</button>
+    <button class="tab-btn" onclick="showTab('checkliste')"><span class="ic">✅</span>Checkliste</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ══════════════════════════════════════════
+       TAB: ÜBERSICHT
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel active" id="panel-uebersicht">
+    <div class="section-head">
+      <h2>Alle <em>Etappen</em> im Überblick</h2>
+      <div class="section-head-sub">27. Juni – 19. Juli 2026</div>
+    </div>
+
+    <div class="grid4" style="margin-bottom:32px;">
+      <div class="stat-tile"><div class="n">2</div><div class="l">Nächte Thessaloniki</div></div>
+      <div class="stat-tile"><div class="n">10</div><div class="l">Tage Segeltörn</div></div>
+      <div class="stat-tile"><div class="n">3</div><div class="l">Nächte Kavala</div></div>
+      <div class="stat-tile"><div class="n">7</div><div class="l">Tage Thassos</div></div>
+    </div>
+
+    <div class="wm-box" style="margin-bottom:28px;">
+      <h3>⚽ FIFA WM 2026 · Deutschland (Annahme: Gruppensieger)</h3>
+      <p>Die Gruppenphase (Gegner: Curaçao, Elfenbeinküste, Ecuador) endet vor Reiseantritt. Anstoßzeiten in Griechenland (EEST = CEST+1). Alle Abendspiele in den USA ca. 01:00–02:00 Uhr EEST.</p>
+      <div class="wm-match"><span class="wm-label">Achtelfinale ~4.–5. Juli</span><span class="wm-info">Segeltörn · Marina oder Ankerbucht · ggf. auf Mobilgerät streamen (ARD/ZDF)</span></div>
+      <div class="wm-match"><span class="wm-label">Viertelfinale ~9.–10. Juli</span><span class="wm-info">Kavala · Airotel Galaxy hat TV · perfekter Abend nach Törnende</span></div>
+      <div class="wm-match"><span class="wm-label">Halbfinale ~14. Juli</span><span class="wm-info">Thassos · Hotel-TV oder Taverne am Strand</span></div>
+      <div class="wm-match"><span class="wm-label">Finale 19. Juli</span><span class="wm-info">MetLife Stadium, New Jersey · Anpfiff ca. 22–01 Uhr EEST = Ihr Flug landet 12:45 in DUS → Finale live zuhause schauen! 🏆</span></div>
+    </div>
+
+    <div class="day-list">
+      <div class="day-item">
+        <div class="day-date-col dark">
+          <div class="day-dow">Sa</div><div class="day-day">27</div><div class="day-month">Jun</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">🚆 Anreise Greven → Düsseldorf → Thessaloniki <span class="badge b-info">Reisetag</span></div>
+          <div class="day-rows">
+            <span class="t">07:45</span> RE15 Greven → Münster Hbf (07:56)<br>
+            <span class="t">08:30</span> IC 2007 Münster → Duisburg Hbf (09:31)<br>
+            <span class="t">ca. 09:42</span> RE5 Duisburg → DUS Flughafen Terminal (ca. 10:10)<br>
+            <span class="t">12:40</span> Flug A3541 DUS → SKG · Ankunft <span class="t">16:10</span><br>
+            <span class="t">Transfer</span> Flughafen → COLORS Urban Hotel, Thessaloniki
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col">
+          <div class="day-dow">So–Mo</div><div class="day-day">28–29</div><div class="day-month">Jun</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">🏛 Thessaloniki <span class="badge b-info">2 Nächte · COLORS Urban Hotel</span></div>
+          <div class="day-rows">
+            Ano Poli · Weißer Turm (Blaue Stunde) · Kapani-Markt · Byzantinische Museen<br>
+            Tagesausflug Vergina – Königsgräber Philipps II. (UNESCO) · ggf. Pella
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col orange">
+          <div class="day-dow">Mo</div><div class="day-day">29</div><div class="day-month">Jun</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">⛵ Törn-Start SY ANNA <span class="badge b-warn">Tag 1 von 10</span></div>
+          <div class="day-rows">
+            Checkout COLORS · Gepäck an Bord · Bavaria Cruiser 45 · Skipper Thomas Brandes<br>
+            Day-Dream Yachting · Abfahrt Thessaloniki Richtung Kassandra
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col orange">
+          <div class="day-dow">Di–Di</div><div class="day-day">30.6–9.7</div><div class="day-month"></div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">⛵ Segeltörn Sithonia · Athos · Thassos <span class="badge b-warn">~225 nm</span></div>
+          <div class="day-rows">
+            Kassandra · Porto Koufo · Vourvourou/Diaporos · Neos Marmaras (Ta Kymata!) · Sarti · Heart-Shaped Bay<br>
+            Ammouliani · Ouranoupoli · Athos-Passage · Thassos (Aliki, Limenas) → Kavala
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col">
+          <div class="day-dow">Do–Sa</div><div class="day-day">9–12</div><div class="day-month">Jul</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">🏰 Kavala <span class="badge b-info">3 Nächte · Airotel Galaxy</span></div>
+          <div class="day-rows">
+            Panagia-Halbinsel · Kamares-Aquädukt · Imaret · Kastro · Abendspaziergang Hafen<br>
+            Philippi Festival 2026 (69. Jahrgang „Metamorphosis") · Tagesausflug Philippi UNESCO · Mietwagen<br>
+            Nachtfotografie: Aquädukt · Hafen · Panagia · Kastro
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col green">
+          <div class="day-dow">So</div><div class="day-day">12</div><div class="day-month">Jul</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">🚢 Fähre Kavala → Thassos <span class="badge b-must">Sonntag – Fahrplan prüfen!</span></div>
+          <div class="day-rows">
+            Fähre Kavala → Skala Prinos (Wochentag-Zeiten: 08:30 · 10:15 · 12:15 · 14:00)<br>
+            <strong style="color:var(--red);">Sonntags-Fahrplan abweichend – unbedingt bestätigen!</strong> Tel: 2510 835977<br>
+            Transfer Skala Prinos → Hotel Skala, Skala Rachoniou (Bus oder Taxi, ~10 min)
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col green">
+          <div class="day-dow">So–Sa</div><div class="day-day">12–19</div><div class="day-month">Jul</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">🚲 Thassos – E-Bike <span class="badge b-ok">7 Tage · Frosch-Sportreisen</span></div>
+          <div class="day-rows">
+            Hotel Skala, Skala Rachoniou · Nordküste zwischen Skala Prinos und Limenas<br>
+            Programm via Frosch · Giola · Aliki · Saliara Beach · Theologos · Limenas-Antiktheater
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-date-col dark">
+          <div class="day-dow">So</div><div class="day-day">19</div><div class="day-month">Jul</div>
+        </div>
+        <div class="day-body">
+          <div class="day-title">✈ Rückreise <span class="badge b-must">EW9685 · KVA 10:55 → DUS 12:45</span></div>
+          <div class="day-rows">
+            Transfer Thassos → KVA via <strong>Frosch-Sportreisen gebucht</strong> · Ref: 9ZD2KK<br>
+            Flughafen KVA (Alexander der Große) bei Chrysoupoli/Keramoti · Ankunft DUS 12:45
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: ANREISE
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-anreise">
+    <div class="section-head">
+      <h2>Anreise <em>27. Juni 2026</em></h2>
+      <div class="section-head-sub">Samstag · Greven → Düsseldorf → Thessaloniki</div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:28px;">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.15rem; color:var(--dark); margin-bottom:14px;">🚆 Zugreise nach DUS</h3>
+        <div class="conn-wrap">
+          <div class="conn-item">
+            <div class="conn-time">07:45</div>
+            <div class="conn-body">
+              <div class="conn-title">Greven (Westf) · Abfahrt</div>
+              <div class="conn-sub">RE15 (90269) nach Münster · 11 min Fahrtzeit</div>
+            </div>
+          </div>
+          <div class="conn-item conn-mid">
+            <div class="conn-time">07:56</div>
+            <div class="conn-body">
+              <div class="conn-title">Münster(Westf)Hbf · Gl. 2 A-C</div>
+              <div class="conn-sub">⚠ Bahnsteigneuerungen ab 09.06.2026 – Gleis prüfen! · 34 min Umstieg</div>
+            </div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-time">08:30</div>
+            <div class="conn-body">
+              <div class="conn-title">Münster(Westf)Hbf · Gl. 8</div>
+              <div class="conn-sub">IC 2007 nach Köln Hbf · 4 Halte · 1h 1 min Fahrtzeit</div>
+            </div>
+          </div>
+          <div class="conn-item conn-mid">
+            <div class="conn-time">09:31</div>
+            <div class="conn-body">
+              <div class="conn-title">Duisburg Hbf · Gl. 2</div>
+              <div class="conn-sub">⚠ Nur 11 min Umstieg – knapp! Bei Verspätung nächsten RE5 nehmen</div>
+            </div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-time">09:42</div>
+            <div class="conn-body">
+              <div class="conn-title">Duisburg Hbf · RE5 (28511)</div>
+              <div class="conn-sub">nach Düsseldorf Flughafen Terminal · ca. 30 min</div>
+            </div>
+          </div>
+          <div class="conn-item conn-mid" style="background:var(--green-bg);">
+            <div class="conn-time" style="background:var(--green);color:white;">~10:10</div>
+            <div class="conn-body">
+              <div class="conn-title" style="color:var(--green);">DUS Flughafen Terminal · Ankunft</div>
+              <div class="conn-sub">→ SkyTrain zum Check-in-Bereich (7 min) · Ca. 2:30 h vor Abflug</div>
+            </div>
+          </div>
+        </div>
+        <div class="warn-box">
+          <h3>⚠ Duisburg Umstieg nur 11 Minuten</h3>
+          <p>Bei IC-Verspätung kann der RE5 09:42 verpasst werden. Nächste Verbindung kennen und im DB-App gespeichert haben. Für einen Flug ausreichend Zeit einplanen.</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.15rem; color:var(--dark); margin-bottom:14px;">✈ Flug DUS → Thessaloniki</h3>
+        <div class="conn-wrap">
+          <div class="conn-item">
+            <div class="conn-time">12:40</div>
+            <div class="conn-body">
+              <div class="conn-title">Düsseldorf DUS · Abflug</div>
+              <div class="conn-sub">Aegean Airlines · A3541 · Check-in mind. 2h vorher</div>
+            </div>
+          </div>
+          <div class="conn-item conn-mid" style="background:var(--green-bg);">
+            <div class="conn-time" style="background:var(--green);color:white;">16:10</div>
+            <div class="conn-body">
+              <div class="conn-title" style="color:var(--green);">Thessaloniki SKG · Ankunft</div>
+              <div class="conn-sub">Transfer → COLORS Urban Hotel, Thessaloniki Innenstadt</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.05rem; color:var(--dark); margin:20px 0 10px;">🚌 Bus SKG → Stadtmitte</h3>
+        <div class="conn-wrap">
+          <div class="conn-item">
+            <div class="conn-time" style="font-size:0.9rem; min-width:72px;">16:10+</div>
+            <div class="conn-body">
+              <div class="conn-title">Flughafen SKG · Ankunftshalle Terminal 1 · Ausgang 4</div>
+              <div class="conn-sub">Buslinie 1X → Thessaloniki Stadtmitte / Hauptbahnhof / KTEL</div>
+            </div>
+          </div>
+          <div class="conn-item conn-mid" style="background:var(--green-bg);">
+            <div class="conn-time" style="background:var(--green);color:white; font-size:0.9rem; min-width:72px;">~17:00</div>
+            <div class="conn-body">
+              <div class="conn-title" style="color:var(--green);">Thessaloniki Innenstadt · Aristotelous-Platz / Bahnhof</div>
+              <div class="conn-sub">Fahrzeit ca. 40–50 min · Ticket ca. €2 (Automat oder Ticketschalter am Flughafen)</div>
+            </div>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top:4px;">
+          <h3>🏨 COLORS Urban Hotel · Thessaloniki</h3>
+          <p>Check-in 27. Juni abends · Check-out 29. Juni (Törn-Start)<br>
+          Lage: Innenstadt, Laufweite zu Aristotelous-Platz und Paralia. Ideal für 2 Tage Stadtprogramm.<br>
+          <strong>Vom Bus:</strong> Ab Aristotelous-Platz / Bahnhof kurzer Fußweg oder Taxi zum Hotel.</p>
+        </div>
+
+        <div style="background:var(--gray); border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px 20px; margin-top:16px;">
+          <div style="font-family:'Oswald',sans-serif; font-size:1rem; color:var(--dark); margin-bottom:10px;">Rückflug 19. Juli</div>
+          <table class="data-table" style="margin:0;">
+            <tr><th>Flug</th><th>Von</th><th>Ab</th><th>An DUS</th></tr>
+            <tbody>
+            <tr><td>EW9685 (Eurowings)</td><td>KVA Kavala</td><td>10:55</td><td>12:45</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px; color:var(--gray3); margin-top:8px; font-style:italic;">Ref: 9ZD2KK · Transfer via Frosch-Sportreisen gebucht</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: THESSALONIKI
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-thessaloniki">
+    <div class="section-head">
+      <h2><em>Thessaloniki</em> · 27–29. Juni</h2>
+      <div class="section-head-sub">2 Nächte · COLORS Urban Hotel · Zweitgrößte Stadt Griechenlands</div>
+    </div>
+
+    <div class="info-box">
+      <h3>Charakter der Stadt</h3>
+      <p>Kompaktes byzantinisches, osmanisches und sephardisch-jüdisches Erbe. Beste Foodie-Stadt Griechenlands. Alles zu Fuß erreichbar. Thermäischer Golf mit Blick bis zum Olymp.</p>
+    </div>
+
+    <div class="grid2" style="margin-bottom:28px;">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">📸 Foto-Spots · Sony A7V</h3>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">Ano Poli – Oberstadt</div><div class="spot-sub">Osmanische Holzhäuser · Stadtmauern · Sonnenuntergang-Panorama</div></div>
+            <div><span class="lens">16–25mm</span></div>
+          </div>
+          <div class="spot-body">Enge Gassen, vom Stadtbrand 1917 verschont. Bestes Fotolicht: Sonnenuntergang Richtung Thermaischer Golf und Olymp. Goldstunde 1–2 h vor Sonnenuntergang einplanen.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Weißer Turm (Lefkos Pyrgos)</div><div class="spot-sub">Paralia · Blaue Stunde · Spiegelung im Wasser</div></div>
+            <div><span class="lens">16–25mm</span></div>
+          </div>
+          <div class="spot-body">Wahrzeichen am Wasser. Foto von der Paralia aus, frontal. Blaue Stunde ca. 21:00 Uhr im Juni – Stativ mitbringen.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Kapani &amp; Modiano Markt</div><div class="spot-sub">Streetfood · Farben · Leben · Morgens 7–9 Uhr</div></div>
+            <div><span class="lens">24–70mm</span></div>
+          </div>
+          <div class="spot-body">Markthallen mit Gewürzen, Fisch, Oliven. Beste Zeit früh morgens. A7V mit AI-Tracking für Street-Fotografie. ISO 1600–3200, f/2.8.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">Rotunde &amp; Galeriusbogen (Kamara)</div><div class="spot-sub">Spätrömisch · Abendlicht von Westen</div></div>
+            <div><span class="lens">70–200mm</span></div>
+          </div>
+          <div class="spot-body">Komprimierte Detailaufnahmen der Reliefs am Galeriusbogen. Abends warmes Licht. 70–200mm für architektonische Details aus Distanz.</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">🏛 Kultur &amp; Ausflüge</h3>
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-img" style="background:linear-gradient(135deg,#2a4a6a,#1a2a3a);">
+            <span>🏺</span>
+            <div class="card-img-label">Tagesausflug</div>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Vergina (Aigai) <span class="badge b-must">UNESCO</span></div>
+            <div class="card-text">Königsgräber Philipps II. (Vater Alexanders des Großen). Unterirdisches Museum über den Tumuli – herausragend. ~70 km ab Thessaloniki. Wichtigster Ort für makedonische Kultur. Früh morgens hin (wenige Touristen, bestes Licht).</div>
+          </div>
+          <div class="card-footer">Mietwagen oder organisierte Tour empfohlen · ca. 2–3 h Fahrzeit hin und zurück</div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-body">
+            <div class="card-title">Pella <span class="badge b-info">Hauptstadt Makedoniens</span></div>
+            <div class="card-text">Geburtsort Alexanders des Großen. Berühmte Kieselmosaike, eigenes Museum. Kombinierbar mit Vergina an einem Tag.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-body">
+            <div class="card-title">Museen in der Stadt</div>
+            <div class="card-text">
+              <strong>Archäologisches Museum</strong> – makedonische Goldschätze<br>
+              <strong>Museum für Byzantinische Kultur</strong> – sehr gut kuratiert<br>
+              Beide auf dem Weg zur Paralia, kompakt zusammen machbar.
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--orange-bg); border:1px solid #f0c090; border-radius:var(--radius-lg); padding:16px 20px;">
+          <div style="font-family:'Oswald',sans-serif; color:var(--orange); margin-bottom:8px;">🍽 Essen in Thessaloniki</div>
+          <div style="font-size:14px; color:var(--text2); line-height:1.7;">
+            <strong>Bougatsa</strong> zum Frühstück (süß oder herzhaft)<br>
+            <strong>Meze mit Tsipouro</strong> – nordgriechische Spezialität, kleine Teller<br>
+            <strong>Mydia</strong> (Muscheln) – Saganaki oder Pilafi<br>
+            <strong>Günstig:</strong> Rund um die Märkte (Kapani-Gassen), nicht Ladadika
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: SEGELTÖRN
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-segeltoern">
+    <div class="section-head">
+      <h2>Segeltörn <em>SY ANNA</em></h2>
+      <div class="section-head-sub">29. Juni – 9. Juli · Bavaria Cruiser 45 · Skipper Thomas Brandes · Day-Dream Yachting</div>
+    </div>
+
+    <div class="grid4" style="margin-bottom:28px;">
+      <div class="stat-tile"><div class="n">10</div><div class="l">Tage</div></div>
+      <div class="stat-tile"><div class="n">~225</div><div class="l">Seemeilen</div></div>
+      <div class="stat-tile"><div class="n">BC45</div><div class="l">Bavaria Cruiser 45</div></div>
+      <div class="stat-tile"><div class="n">20,75m</div><div class="l">Masthöhe ü. WL</div></div>
+    </div>
+
+    <div class="wm-box">
+      <h3>⚽ WM 2026 · Achtelfinale ~4.–5. Juli · An Bord</h3>
+      <p>Mitten im Törn. Empfang je nach Ankerbucht/Marina: In Marinas (Porto Koufo, Vourvourou) meist gutes Mobilnetz. Streaming via ARD/ZDF-Mediathek oder MagentaTV auf dem Smartphone – EU-Roaming gilt auch in Griechenland, kein Aufpreis. Anpfiff ca. <strong>01:00 Uhr EEST</strong> oder <strong>22:00 Uhr EEST</strong> je nach Spielslot.</p>
+    </div>
+
+    <div class="warn-box">
+      <h3>⚠ Potidea-Kanal – Mastdurchfahrtshöhe ungeklärt</h3>
+      <p>Brückenhöhe ca. 18 m (eine Quelle, unbestätigt) · Bavaria 45 Masthöhe ~20,75 m. Falls korrekt: <strong>keine Durchfahrt möglich</strong>. Größere Yachten fahren standardmäßig außen um Kassandra. Muss mit Thomas Brandes / Day-Dream Yachting vor Törn-Start geklärt werden.</p>
+    </div>
+
+    <div class="grid2" style="margin-bottom:28px;">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">Route &amp; Stopps</h3>
+
+        <div class="spot-card">
+          <div class="spot-header" style="background:var(--gray2);">
+            <div style="width:100%;"><div class="spot-title" style="color:var(--dark);">Etappe 1 · Kassandra</div><div class="spot-sub" style="color:var(--text2);">Nea Fokea · Sani · Possidi-Spitze</div></div>
+          </div>
+          <div class="spot-body">Erste Etappe ab Thessaloniki. Eher Transitstopps. Kassandra touristischer als Sithonia. Mit Potidea-Kanal-Frage ggf. Route außen um den Finger.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">⭐ Porto Koufo · Sithonia</div><div class="spot-sub">Bester geschlossener Naturhafen Griechenlands</div></div>
+            <span class="badge b-must">Pflichtstopp</span>
+          </div>
+          <div class="spot-body">Nahezu vollständig geschlossene Bucht, exzellenter Schutz bei Wind. Pflichtstopp wenn Meltemi aufzieht. Ankergrund gut.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Vourvourou / Diaporos-Inseln</div><div class="spot-sub">Türkises Inselgewirr · Baden · Fotografieren</div></div>
+            <span class="lens">16–25mm</span>
+          </div>
+          <div class="spot-body">Flaches, türkisfarbenes Inselgewirr. Viele Ankerbuchten, ideal zum Baden. Top für Fotografie morgens und abends. Highlight der Sithonia-Etappe.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header orange">
+            <div><div class="spot-title">Neos Marmaras · Ta Kymata</div><div class="spot-sub">Mittagsstopp · Fischrestaurant seit 1950</div></div>
+            <span class="badge b-must">Reservieren!</span>
+          </div>
+          <div class="spot-body">Gourmet-Award-Restaurant seit 2006. Tische direkt auf dem Wasser. Reservierung zwingend erforderlich, besonders im Juli.<br><strong>📞 +30 2375 071371</strong> · infotakymata@gmail.com</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">⭐ Sarti · Sonnenaufgang Athos</div><div class="spot-sub">Ostküste Sithonia · Direktblick auf den Heiligen Berg</div></div>
+            <span class="badge b-photo">Foto-Highlight</span>
+          </div>
+          <div class="spot-body">Spektakulärer Sonnenaufgang über dem Athos-Massiv. Boot liegt vor Anker – Stativ auf Deck, 200mm komprimiert den Gipfel über dem Wasser. Bracketing empfohlen (hoher Dynamikumfang). Sonnenaufgang Juli ~05:45 Uhr. Ankerplatz bei NE-Wind exponiert – mit Thomas besprechen.</div>
+          <div class="spot-footer"><span class="lens">70–200mm</span> <span style="font-size:12px;color:var(--text2);">→ auf 150–200mm · IBIS hilft freihändig</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Heart-Shaped Bay</div><div class="spot-sub">Hinter Platanithsi-Camping · nahe Sarti</div></div>
+            <span class="badge b-warn">Tiefe prüfen!</span>
+          </div>
+          <div class="spot-body">Herzförmige Bucht, vom Wasser erkennbar, nicht von der Straße. Zugänglich für kleinere Yachten laut Berichten. Einfahrtstiefe und Ankergrund mit Thomas klären. Doppelstopp mit Sarti sinnvoll.</div>
+          <div class="spot-footer"><span class="lens">16–25mm</span> <span style="font-size:12px;color:var(--text2);">Türkise Bucht &amp; umgebendes Grün</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Ammouliani &amp; Drenia-Inseln</div><div class="spot-sub">Einzige bewohnte Chalkidiki-Insel</div></div>
+          </div>
+          <div class="spot-body">Flach, türkis, beliebter Ankerplatz. Drenia-Inseln (Gaidouronisia) davor – top zum Baden. Guter Etappenstopp vor der Athos-Passage.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Ouranoupoli</div><div class="spot-sub">Tor zum Athos · Versorgung</div></div>
+          </div>
+          <div class="spot-body">Letzter Versorgungsort vor Athos-Passage. Wasser, Diesel, Proviant auffüllen. Guter Übernachtungspunkt.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header" style="background:var(--red);">
+            <div><div class="spot-title">⚠ Athos-Passage</div><div class="spot-sub">Autonomes Gebiet · Sperrzone beachten</div></div>
+          </div>
+          <div class="spot-body">Annäherungsbeschränkung vor der Küste. Anlanden verboten. Genaue erlaubte Mindestdistanz mit Thomas / Revierführer klären – das ist eine Rechtsfrage. Klöster vom Wasser aus sehen und fotografieren ist möglich.</div>
+          <div class="spot-footer"><span class="lens">70–200mm</span> <span style="font-size:12px;color:var(--text2);">Klöster &amp; Gipfel vom Boot</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header green" style="background:var(--green);">
+            <div><div class="spot-title">Thassos · Letzter Inselstopp</div><div class="spot-sub">Limenas · Aliki-Bucht · Südküste</div></div>
+          </div>
+          <div class="spot-body">Mehrere Ankerbuchten rund um die Insel. Aliki-Doppelbucht mit antikem Marmorbruch besonders fotogen. Limenas für Versorgung und ggf. Übernachtung. Dann letzter Schlag nach Kavala.</div>
+          <div class="spot-footer"><span class="lens">16–25mm</span> <span class="lens">70–200mm</span></div>
+        </div>
+
+        <div class="info-box" style="margin-top:0;">
+          <h3>Wetter / Meltemi Juli</h3>
+          <p>Nordägäis weniger Meltemi-geprägt als Kykladen. Anfang Juli nimmt NE-Wind zu. Vormittags meist ruhiger. Offene Golfquerungen in Morgenstunden legen. Tagesvorhersage täglich prüfen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: KAVALA
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-kavala">
+    <div class="section-head">
+      <h2><em>Kavala</em> · 9–12. Juli</h2>
+      <div class="section-head-sub">3 Nächte · Airotel Galaxy · Tor nach Thassos &amp; Philippi</div>
+    </div>
+
+    <div class="wm-box">
+      <h3>⚽ WM 2026 · Viertelfinale ~9.–10. Juli in Kavala</h3>
+      <p>Törnende = Kavala-Ankunft. Idealer Abend zum Ausruhen + WM schauen. Das Airotel Galaxy hat TV auf den Zimmern. Alternativ: Sportbar im Hafenbereich.<br>
+      Anpfiff Deutschland-Spiel ca. <strong>01:00 Uhr EEST</strong> (Abend-Slot USA) oder <strong>22:00 Uhr EEST</strong> (Nachmittags-Slot USA) – genaue Zeit erst kurz vor dem Turnier fixiert.</p>
+    </div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div class="info-box" style="margin-bottom:0;">
+        <h3>Philippi Festival 2026 · 69. Jahrgang</h3>
+        <p>Thema: <em>„Metamorphosis"</em>. Programm noch nicht veröffentlicht (Stand Juni 2026). Antikes Theater Philippi + verschiedene Spielorte in Kavala.<br><strong>Tickets:</strong> <a href="https://www.ticketservices.gr/" target="_blank">ticketservices.gr</a><br><strong>Tel:</strong> +30 2510 220876 · <a href="https://festivalphilippon.gr/en/" target="_blank">festivalphilippon.gr</a></p>
+      </div>
+      <div class="warn-box" style="margin-bottom:0;">
+        <h3>🚗 Mietwagen empfohlen</h3>
+        <p>Philippi liegt 15 km außerhalb – kein direkter ÖPNV. Autounion (8,6/10) oder Avance (8,4/10) in Kavala ca. €30–42/Tag im Juli. Am 12.7. morgens zurückgeben, dann Fähre nach Thassos.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">📸 Tagsüber · Sightseeing</h3>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Panagia-Halbinsel</div><div class="spot-sub">Altstadt · Kastro · Panorama über Hafen</div></div>
+            <span class="lens">24–70mm</span>
+          </div>
+          <div class="spot-body">Malerische Altstadt auf der Halbinsel. Enge Gassen, osmanische Architektur, Festung oben. Bestes Licht: morgens und Stunden vor Sonnenuntergang.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Kamares · Osmanisches Aquädukt</div><div class="spot-sub">60 Bögen · Fotomotiv tagsüber &amp; nachts</div></div>
+            <span class="lens">16–25mm</span>
+          </div>
+          <div class="spot-body">Markantes Bauwerk, zentral gelegen. Frontalperspektive mit Bogenfolge. Nachmittags Licht von Westen durch die Bögen. Nachts flutbeleuchtet – Highlight für Langzeitbelichtung.</div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">Philippi · UNESCO-Ausgrabung</div><div class="spot-sub">Antike Stadt · Apostel Paulus · Amphitheater · 15 km</div></div>
+            <span class="badge b-must">Nicht verpassen</span>
+          </div>
+          <div class="spot-body">Früh morgens (7–9 Uhr): lange Schatten auf dem Forum, kaum Touristen. 16mm für das Amphitheater im Weitwinkel, 70mm für Details Mosaike und Säulen. Mit Mietwagen ~20 min.</div>
+          <div class="spot-footer"><span class="lens">16–25mm</span><span class="lens">24–70mm</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">🌙 Nachtfotografie mit Stativ</h3>
+        <div class="info-box">
+          <h3>Goldene Stunde &amp; Blaue Stunde im Juli</h3>
+          <p>Sonnenuntergang ca. 20:30 · Blaue Stunde 21:00–21:30 Uhr. Alle Spots fußläufig ab Airotel Galaxy erreichbar.</p>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">⭐ Kamares · Flutlicht</div><div class="spot-sub">Oranges Flutlicht · 60 Bögen · 24h zugänglich</div></div>
+            <span class="badge b-photo">Highlight</span>
+          </div>
+          <div class="spot-body">Bestes Nacht-Motiv in Kavala. Frontale Position auf der Platestraße. 20–60 s · f/8 · ISO 400. Fahrzeuge zeichnen Lichtstreifen bei 30+ Sekunden. Fußweg vom Hotel.</div>
+          <div class="spot-footer"><span class="lens">16–25mm</span><span class="lens">24–70mm</span> <span style="font-size:12px;color:var(--text2);">20–60 s · f/8 · ISO 400</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Kastro → Blick Hafen</div><div class="spot-sub">Beleuchtete Halbinsel · Komprimiertes 70–200mm</div></div>
+          </div>
+          <div class="spot-body">Von der Burgmauer Richtung Norden: beleuchtete Panagia-Gassen und Hafen. Wasserspiegelung. 70–200mm komprimiert Burg und Hafen in einem Frame.</div>
+          <div class="spot-footer"><span class="lens">70–200mm</span> <span style="font-size:12px;color:var(--text2);">15–30 s · f/5.6 · ISO 800</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Alter Hafen · Fischerboote</div><div class="spot-sub">Langzeitbelichtung · Wasserspiegelung</div></div>
+          </div>
+          <div class="spot-body">Spiegelung der Panagia-Halbinsel und Bootslichter im glatten Wasser (Langzeitbelichtung). Blaue Stunde nutzen. Hafenpromenade vor dem Fischerhafen.</div>
+          <div class="spot-footer"><span class="lens">24–70mm</span> <span style="font-size:12px;color:var(--text2);">25–45 s · f/8 · ISO 400</span></div>
+        </div>
+
+        <div style="background:var(--gray); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 18px; margin-top:4px; font-size:13px; color:var(--text2);">
+          <strong style="color:var(--dark); display:block; margin-bottom:6px;">Reihenfolge Abend-Tour</strong>
+          Blaue Stunde Hafen → Kamares (30+ min) → Kastro-Außenmauer<br>
+          Selbstauslöser 2 s oder Fernauslöser verwenden.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: THASSOS
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-thassos">
+    <div class="section-head">
+      <h2><em>Thassos</em> · 12–19. Juli</h2>
+      <div class="section-head-sub">7 Tage · Hotel Skala, Skala Rachoniou · E-Bike Frosch-Sportreisen</div>
+    </div>
+
+    <div class="warn-box">
+      <h3>🚢 Fähre 12. Juli ist ein Sonntag!</h3>
+      <p>Wochentags-Zeiten Kavala → Skala Prinos: 08:30 · 10:15 · 12:15 · 14:00. Der <strong>Sonntags-Fahrplan ist abweichend</strong> und fährt deutlich seltener. Unbedingt vor dem 12.7. bestätigen.<br>
+      <strong>Kavala Ticket Office: 2510 835977</strong> · <a href="https://www.thassos-ferries.gr/en/Itinerariesb.php?cat_id=2" target="_blank">thassos-ferries.gr</a><br>
+      Skala Prinos → Hotel Skala Rachoniou: Bus (KTEL) oder Taxi ~10 min.</p>
+    </div>
+
+    <div class="ok-box">
+      <h3>✅ Rücktransfer 19. Juli gebucht</h3>
+      <p>Transfer Thassos → KVA via <strong>Frosch-Sportreisen</strong> – kein eigenes Taxi/Fähre nötig. EW9685 KVA 10:55 → DUS 12:45 · Ref: 9ZD2KK.</p>
+    </div>
+
+    <div class="wm-box">
+      <h3>⚽ WM 2026 · Halbfinale & Finale</h3>
+      <div class="wm-match"><span class="wm-label">Halbfinale ~14. Juli</span><span class="wm-info">Thassos · Hotel-TV oder Taverne/Sportbar in Limenas schauen · Anpfiff ca. 22:00–01:00 Uhr EEST</span></div>
+      <div class="wm-match"><span class="wm-label">Finale 19. Juli</span><span class="wm-info">Ihr Flug landet 12:45 in DUS (CEST) · Finale im MetLife Stadium NJ ca. 22:00–01:00 Uhr CEST → live zuhause in Deutschland! 🏆</span></div>
+      <p style="margin-top:10px; font-size:13px;">Streaming unterwegs: ARD/ZDF-Mediathek oder MagentaTV – VPN nicht nötig in der EU (Roaming-Regelung gilt auch in Griechenland).</p>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--dark); margin-bottom:14px;">🚲 E-Bike Programm (Frosch)</h3>
+        <div class="info-box">
+          <h3>Basis: Skala Rachoniou</h3>
+          <p>Nordküste zwischen Skala Prinos (west) und Limenas (ost). Ruhiger Küstenort. Tagestouren via Frosch-Programm – kein eigener Mietwagen/Roller nötig. Reichweite: Nordküste + Limenas gut machbar. Süd-/Ostspots (Aliki, Giola, Saliara) je nach Tourenplan.</p>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">Giola · Natürliches Felsbecken</div><div class="spot-sub">Ostküste · Ikonisches Motiv</div></div>
+            <span class="badge b-photo">Foto-Spot</span>
+          </div>
+          <div class="spot-body">Natürliches Felsbecken, türkisblaues Wasser. Mittagssonne: Wasser leuchtet am intensivsten. Leicht überbelichten für Wassertextur. Je nach Frosch-Tourenplan.</div>
+          <div class="spot-footer"><span class="lens">24–70mm</span> <span style="font-size:12px;color:var(--text2);">Mittags · leicht überbelichten</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Aliki · Antiker Marmorbruch</div><div class="spot-sub">Doppelbucht · Archäologie direkt am Meer</div></div>
+            <span class="badge b-photo">Foto-Spot</span>
+          </div>
+          <div class="spot-body">Marmorbruch direkt am Meer, Doppelbucht. Morgens: Licht von Osten auf weißen Marmor. Extrem kontrastreiche Szene – Belichtungsreihe empfohlen. Fotogen und archäologisch interessant.</div>
+          <div class="spot-footer"><span class="lens">16–25mm</span> <span style="font-size:12px;color:var(--text2);">Morgens · Belichtungsreihe</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header">
+            <div><div class="spot-title">Saliara · Marble Beach</div><div class="spot-sub">Weißer Marmorkies · Türkises Wasser</div></div>
+          </div>
+          <div class="spot-body">Spektakulärer weißer Marmorkies, türkises Wasser. 200mm komprimiert Strand und Bergkulisse. Zugfahrt holprig. Gegenlicht vermeiden.</div>
+          <div class="spot-footer"><span class="lens">70–200mm</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="spot-card">
+          <div class="spot-header dark">
+            <div><div class="spot-title">Theologos · Bergdorf</div><div class="spot-sub">Alte Steinhäuser · Authentisch · Taveerne</div></div>
+          </div>
+          <div class="spot-body">Traditionelles Bergdorf, vom Massentourismus wenig berührt. Bewölkung ideal – kein hartes Mittagslicht für Architekturfotografie. Günstige Tavernen.</div>
+          <div class="spot-footer"><span class="lens">24–70mm</span> <span style="font-size:12px;color:var(--text2);">Bewölkung ideal</span></div>
+        </div>
+
+        <div class="spot-card">
+          <div class="spot-header" style="background:var(--green);">
+            <div><div class="spot-title">Limenas · Thassos-Stadt</div><div class="spot-sub">Hauptort · Antike Agora · Theater · Hafen</div></div>
+          </div>
+          <div class="spot-body">Antike Agora und Theater (ggf. Sommeraufführungen). Museum. Hafen für Abendessen. Von Skala Rachoniou mit E-Bike gut erreichbar.</div>
+        </div>
+
+        <div style="background:var(--blue-light); border:1px solid var(--blue-mid); border-radius:var(--radius-lg); padding:16px 20px; margin-top:14px;">
+          <div style="font-family:'Oswald',sans-serif; color:var(--blue-dark); margin-bottom:10px; font-size:1rem;">Bus Skala Prinos → Skala Rachoniou → Limenas</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.7;">
+            Mo–Fr: ab Skala Prinos → Limenas: 06:55 · 09:40 · 11:30 · 13:30 · 15:20 · 17:20<br>
+            Skala Rachoniou → Limenas: 07:00 · 09:45 · 11:35 · 13:35 · 15:30 · 17:30<br>
+            <strong style="color:var(--red);">Sonntag: deutlich weniger Fahrten!</strong><br>
+            KTEL Thassos: <a href="tel:+302593022162">+30 25930 22162</a><br>
+            Preis Skala Prinos → Limenas: €2,40
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: CHECKLISTE
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="panel-checkliste">
+    <div class="section-head">
+      <h2>Offene Punkte &amp; <em>Checkliste</em></h2>
+      <div class="section-head-sub">Vor Reiseantritt erledigen</div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; color:var(--red); margin-bottom:16px; font-size:1.05rem;">🔴 Dringend / Buchen</h3>
+        <ul class="check-list">
+          <li>
+            <input type="checkbox" id="c1">
+            <label class="check-label" for="c1">
+              <strong>Ta Kymata reservieren <span class="badge b-must">Jetzt</span></strong>
+              <span>+30 2375 071371 · infotakymata@gmail.com · Ziel: Mittagsstopp Segeltörn (ca. 1.–8. Juli)</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c2">
+            <label class="check-label" for="c2">
+              <strong>Fähre 12.7. Kavala → Skala Prinos bestätigen</strong>
+              <span>Sonntag! Abweichender Fahrplan. Tel: 2510 835977 · thassos-ferries.gr</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c3">
+            <label class="check-label" for="c3">
+              <strong>Mietwagen Kavala buchen</strong>
+              <span>9.–12. Juli · Autounion oder Avance · ca. €30–42/Tag · frühzeitig buchen (Hochsaison)</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c4">
+            <label class="check-label" for="c4">
+              <strong>Philippi Festival Tickets buchen</strong>
+              <span>ticketservices.gr · sobald Programm 2026 veröffentlicht · festivalphilippon.gr</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c5">
+            <label class="check-label" for="c5">
+              <strong>DB Zugtickets buchen</strong>
+              <span>27.06. Greven 07:45 → DUS Flughafen · RE15 + IC2007 + RE5 · ab €22</span>
+            </label>
+          </li>
+        </ul>
+
+        <h3 style="font-family:'Oswald',sans-serif; color:var(--orange); margin: 24px 0 16px; font-size:1.05rem;">🟠 Mit Thomas Brandes klären</h3>
+        <ul class="check-list">
+          <li>
+            <input type="checkbox" id="c6">
+            <label class="check-label" for="c6">
+              <strong>Potidea-Kanal Mastdurchfahrtshöhe</strong>
+              <span>Bavaria 45 Masthöhe ~20,75 m. Brücke angeblich ~18 m → Route außen um Kassandra?</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c7">
+            <label class="check-label" for="c7">
+              <strong>Heart-Shaped Bay · Einfahrtstiefe &amp; Windschutz</strong>
+              <span>NE-Wind-Exposition? Ankergrund? Erreichbar für Bavaria 45?</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c8">
+            <label class="check-label" for="c8">
+              <strong>Sarti · Ankerplatz bei NE-Wind</strong>
+              <span>Exposition prüfen · Sonnenaufgang-Stopp über Nacht vor Anker möglich?</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c9">
+            <label class="check-label" for="c9">
+              <strong>Athos-Sperrzone · genaue Mindestdistanz</strong>
+              <span>Rechtlich verbindliche Grenze für das Passieren der Halbinsel</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif; color:var(--blue); margin-bottom:16px; font-size:1.05rem;">🔵 Kurz vor Reise prüfen</h3>
+        <ul class="check-list">
+          <li>
+            <input type="checkbox" id="c10">
+            <label class="check-label" for="c10">
+              <strong>Philippi Festival Programm Juli</strong>
+              <span>festivalphilippon.gr/en/ – wird kurz vor Sommer veröffentlicht</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c11">
+            <label class="check-label" for="c11">
+              <strong>Bahnsteig Münster Hbf bestätigen</strong>
+              <span>Bahnsteigneuerungen ab 09.06.2026 laufen noch · Gl. 2 A-C ggf. geändert</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c12">
+            <label class="check-label" for="c12">
+              <strong>KTEL Thassos Sonntags-Fahrplan 12.7.</strong>
+              <span>+30 25930 22162 · Bus Skala Prinos → Skala Rachoniou</span>
+            </label>
+          </li>
+        </ul>
+
+        <h3 style="font-family:'Oswald',sans-serif; color:var(--green); margin: 24px 0 16px; font-size:1.05rem;">✅ Bereits gebucht &amp; bestätigt</h3>
+        <ul class="check-list">
+          <li>
+            <input type="checkbox" id="c13" checked>
+            <label class="check-label" for="c13">
+              <strong>Flug A3541 DUS → SKG · 27.06.</strong>
+              <span>Aegean Airlines · 12:40 → 16:10</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c14" checked>
+            <label class="check-label" for="c14">
+              <strong>COLORS Urban Hotel, Thessaloniki</strong>
+              <span>27.–29. Juni</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c15" checked>
+            <label class="check-label" for="c15">
+              <strong>Segeltörn SY ANNA · Day-Dream Yachting</strong>
+              <span>Bavaria 45 · Skipper Thomas Brandes · 29.06.–09.07.</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c16" checked>
+            <label class="check-label" for="c16">
+              <strong>Airotel Galaxy, Kavala</strong>
+              <span>9.–12. Juli</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c17" checked>
+            <label class="check-label" for="c17">
+              <strong>E-Bike-Tour Frosch-Sportreisen, Thassos</strong>
+              <span>Hotel Skala, Skala Rachoniou · 12.–19. Juli</span>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="c18" checked>
+            <label class="check-label" for="c18">
+              <strong>Rückflug EW9685 KVA → DUS · 19.07.</strong>
+              <span>10:55 → 12:45 · Ref: 9ZD2KK · Transfer via Frosch gebucht</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  Sportclub Sveti Kriz · Nordgriechenland 2026 · Stand: Juni 2026
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('panel-' + name);
+  if (panel) panel.classList.add('active');
+  event.currentTarget && event.currentTarget.classList && event.currentTarget.classList.add('active');
+  // sync main-nav
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + name + "'")) {
+      a.style.color = 'var(--blue)';
+      a.style.borderBottomColor = 'var(--blue)';
+    } else {
+      a.style.color = '';
+      a.style.borderBottomColor = '';
+    }
+  });
+}
+
+// Tab buttons from nav bar also activate correct button highlight
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
