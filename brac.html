@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brač Reiseplan · Sportclub Sveti Kriz · Frosch Sportreisen</title>
+<title>Brač Reiseplan · Sportclub Sveti Kriz · 29. Aug – 12. Sep 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -202,7 +202,7 @@
     background: var(--white);
     border-bottom: 2px solid var(--border);
     position: sticky;
-    top: 69px;
+    top: 95px; /* topbar 30px + header 65px */
     z-index: 90;
     box-shadow: 0 2px 6px rgba(0,0,0,.06);
   }
@@ -671,13 +671,113 @@
   .tab-panel.active .day-item:nth-child(4),
   .tab-panel.active .stat-tile:nth-child(4) { animation-delay: .15s; }
 
-  @media (max-width: 640px) {
-    .hero-stats { flex-direction: row; }
-    .hero-stat { flex: 1; padding: 10px 12px; }
-    .day-date-col { padding: 10px 8px; }
+  /* ── RESPONSIVE ── */
+
+  /* Tablet: 768px */
+  @media (max-width: 768px) {
+    .topbar-right { display: none; }
+    .topbar-left { gap: 12px; }
+    .main-nav { display: none; }
+    .tab-btn { padding: 12px 14px; font-size: 12px; gap: 5px; }
+    .tab-btn .icon { font-size: 14px; }
+    .tab-nav { top: 82px; } /* topbar + smaller header */
+    .content { padding: 24px 16px 48px; }
+    .hero { padding: 36px 16px 32px; }
+    .hero-sub { font-size: 15px; }
+    .grid2 { grid-template-columns: 1fr; }
+    .grid3 { grid-template-columns: repeat(2, 1fr); }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+
+  /* Smartphone: 480px */
+  @media (max-width: 480px) {
+    /* Header */
+    .header { padding: 10px 0; }
+    .header-inner { padding: 0 14px; }
+    .logo { font-size: 17px; }
+    .logo-frog { width: 30px; height: 30px; font-size: 17px; }
+    .tab-nav { top: 75px; }
+
+    /* Hero */
+    .hero { padding: 28px 14px 24px; }
+    .hero-eyebrow { font-size: 10px; padding: 3px 9px; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero-sub { font-size: 14px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 20px; }
+    .hero-stat { padding: 10px 8px; margin-right: 0; border-radius: 0 !important; border-right: 1px solid rgba(255,255,255,.15); border-bottom: 1px solid rgba(255,255,255,.15); }
+    .hero-stat:nth-child(3n) { border-right: none; }
+    .hero-stat-n { font-size: 1.4rem; }
+    .hero-stat-l { font-size: 9px; }
+
+    /* Tab nav */
+    .tab-nav-inner { padding: 0 8px; }
+    .tab-btn { padding: 11px 10px; font-size: 11px; gap: 4px; }
+
+    /* Content */
+    .content { padding: 20px 12px 40px; }
+    .section-head h2 { font-size: 1.35rem; }
+    .section-head-sub { font-size: 12px; }
+
+    /* Grids */
+    .grid2, .grid3, .grid4 { grid-template-columns: 1fr; }
+
+    /* Tables: horizontal scroll */
+    .leistung-table { font-size: 13px; }
+    .leistung-table td { padding: 8px 10px; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Day plan */
+    .day-item { grid-template-columns: 70px 1fr; }
+    .day-date-col { padding: 10px 6px; }
+    .day-dow { font-size: 9px; }
     .day-day { font-size: 1.3rem; }
-    .grid2, .grid3 { grid-template-columns: 1fr; }
-    .foto-highlight { grid-template-columns: 1fr; }
+    .day-month { font-size: 9px; }
+    .day-body { padding: 10px 12px; }
+    .day-title { font-size: 0.9rem; }
+    .day-rows { font-size: 12px; }
+
+    /* Spot cards */
+    .spot-header { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
+    .spot-body { padding: 12px 14px; font-size: 13px; }
+    .spot-tip { padding: 8px 14px; }
+    .spot-name { font-size: 1rem; }
+
+    /* Aktivitäten */
+    .act-header { padding: 12px 14px 10px; }
+    .act-icon { width: 34px; height: 34px; font-size: 18px; }
+    .act-body { padding: 10px 14px; font-size: 13px; }
+
+    /* Restaurants */
+    .rest-header { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 14px; }
+    .rest-body { padding: 12px 14px; font-size: 13px; }
+    .rest-price { font-size: 13px; }
+
+    /* Foto highlight */
+    .foto-highlight { grid-template-columns: 1fr; gap: 12px; padding: 18px 16px; }
+    .foto-highlight-icon { font-size: 2rem; }
+
+    /* Info/warn boxes */
+    .info-box, .warn-box { padding: 12px 14px; margin-bottom: 16px; }
+
+    /* Stat tiles */
+    .stat-tile { padding: 14px 12px; }
+    .stat-tile .n { font-size: 1.8rem; }
+
+    /* Footer */
+    .footer { padding: 24px 0 16px; }
+    .footer-inner { padding: 0 14px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+
+  /* Very small: 360px */
+  @media (max-width: 360px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-stat:nth-child(3n) { border-right: 1px solid rgba(255,255,255,.15); }
+    .hero-stat:nth-child(2n) { border-right: none; }
+    .tab-btn span:not(.icon) { display: none; }
+    .tab-btn { padding: 11px 14px; }
   }
 </style>
 </head>
@@ -687,12 +787,9 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
-      <a href="#">% Sale</a>
-      <a href="#">Freie Plätze</a>
-      <a href="#">Hilfecenter</a>
-      <a href="#">Newsletter</a>
+      <span style="color:#aabccc;">Mein persönlicher Reiseplan</span>
     </div>
-    <div class="topbar-right">Tel. 0251 9278810 · Mo–Fr 10:00–17:00</div>
+    <div class="topbar-right">29. Aug – 12. Sep 2026 · Bol, Brač</div>
   </div>
 </div>
 
@@ -701,15 +798,8 @@
   <div class="header-inner">
     <a href="#" class="logo">
       <div class="logo-frog">🐸</div>
-      Frosch Sportreisen
+      Reiseplan Brač 2026
     </a>
-    <nav class="main-nav">
-      <a href="#" class="active">Sportclubs</a>
-      <a href="#">Familienreisen</a>
-      <a href="#">Fernreisen</a>
-      <a href="#">Aktivreisen</a>
-      <a href="#">Aktivitäten</a>
-    </nav>
   </div>
 </header>
 
@@ -1231,30 +1321,9 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">🐸 Frosch Sportreisen</div>
-        <p style="margin-top:10px;font-size:12px;">Reisepläne für deinen perfekten Sporturlaub.</p>
-        <p style="margin-top:8px;font-size:12px;">Tel. 0251 9278810<br>Mo–Fr: 10:00–17:00 Uhr</p>
-      </div>
-      <div>
-        <h4>Sportclubs</h4>
-        <a href="#">Sportclub Sveti Kriz · Brač</a>
-        <a href="#">Sportclub Korfu</a>
-        <a href="#">Sportclub Samos</a>
-        <a href="#">Sportclub Sardinien</a>
-      </div>
-      <div>
-        <h4>Service</h4>
-        <a href="#">Hilfecenter</a>
-        <a href="#">Newsletter</a>
-        <a href="#">Freie Plätze</a>
-        <a href="#">MyFrosch</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Frosch Sportreisen · Persönlicher Reiseplan</span>
-      <span>Datenschutz · Impressum · Reisebedingungen</span>
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <div class="footer-logo">🐸 Reiseplan Brač 2026</div>
+      <span>Sportclub Sveti Kriz · Bol · 29. Aug – 12. Sep 2026 · 3 Personen</span>
     </div>
   </div>
 </footer>
